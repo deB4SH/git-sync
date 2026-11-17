@@ -13,5 +13,5 @@ jobs:
     with:
       docker_org: ${{ secrets.DR_REGISTRY }}
       build_context: ./
-      build_file: ./src/docker/Dockerfile
+      build_file: ./Dockerfile
       build_arg_repository: ${{ secrets.DR_DOCKERIO_PULL_PROXY }}
