@@ -10,9 +10,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
     container:
-      image: dockerhub.registry.macslabs.de/catthehacker/ubuntu:act-latest
+      image: ${{ secrets.DR_DOCKERIO_PULL_PROXY }}/catthehacker/ubuntu:act-latest
     env:
-      DOCKER_ORG: abell.registry.macslabs.de/docker
+      DOCKER_ORG: ${{ secrets.DR_REGISTRY }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -34,9 +34,9 @@ jobs:
       - name: Login
         uses: docker/login-action@v3
         with:
-          registry: abell.registry.macslabs.de/docker
-          username: ${{ secrets.DR_ABELL_USER }}
-          password: ${{ secrets.DR_ABELL_PASSWORD }}
+          registry: ${{ secrets.DR_REGISTRY }}
+          username: ${{ secrets.DR_USER }}
+          password: ${{ secrets.DR_PASSWORD }}
       - name: Build and push
         uses: docker/build-push-action@v5
         with:
