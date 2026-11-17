@@ -11,7 +11,7 @@ jobs:
     uses: Public-Actions/docker-build-and-publish/.gitea/workflows/build.yml@release/1.0.2
     secrets: inherit
     with:
-      docker_org: ${{ secrets.DR_REGISTRY }}/git-sync
+      docker_org: ${{ secrets.DR_REGISTRY }}
       build_context: ./
       build_file: ./src/docker/Dockerfile
       build_arg_repository: ${{ secrets.DR_DOCKERIO_PULL_PROXY }}
