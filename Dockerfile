@@ -1,4 +1,5 @@
-FROM docker.io/library/ubuntu:latest
+ARG REPOSITORY="docker.io"
+FROM ${REPOSITORY}/library/ubuntu:latest
 RUN useradd -u 65533 syncuser
-FROM docker.io/ubuntu/git-sync:4.5-24.04_stable
+FROM ${REPOSITORY}/ubuntu/git-sync:4.5-24.04_stable
 COPY --from=0 /etc/passwd /etc/passwd
